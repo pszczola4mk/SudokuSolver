@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1052540406326",
+    "project_id": "sudokusolver3mk",
+    "storage_bucket": "sudokusolver3mk.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1052540406326:android:9a58d11c5fb83e97b9a697",
+        "android_client_info": {
+          "package_name": "pl.wojo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1052540406326-89seoeul3k6im2jluggqpe69q7antl37.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAB4i42daEYWsQhg4_RzK4_KuZd4rgZ8Zc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1052540406326-89seoeul3k6im2jluggqpe69q7antl37.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
