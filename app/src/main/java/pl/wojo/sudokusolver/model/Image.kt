@@ -1,7 +1,12 @@
 package pl.wojo.sudokusolver.model
 
-class Image {
+class Image() {
 
-    val name: String? = null
-    val data: String? = null
+    var name: String? = null
+    var data: String? = null
+
+    constructor(name: String, data: String) : this() {
+        this.name = name
+        this.data = data
+    }
 }

@@ -6,14 +6,12 @@ import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import pl.wojo.sudokusolver.api.ServiceClient
-import pl.wojo.sudokusolver.api.SudokuSolverService
 import java.io.InputStream
 
 
@@ -57,26 +55,9 @@ class MainActivity : AppCompatActivity() {
 
 
     private fun analyze() {
-        //analyzer.imageBitmap = this.imageBitmap
-        //analyzer.textView = this.textView
-        //analyzer.captureText()
-        /*val byteArrayOutputStream = ByteArrayOutputStream()
-        this.imageBitmap?.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream)
-        val byteArray = byteArrayOutputStream.toByteArray()
-        val encoded: String = Base64.encodeToString(byteArray, Base64.DEFAULT)*/
-
         val thread = Thread {
-            try {
-                Log.i(TAG,"API call Start")
-                val client = ServiceClient()
-                val service = client.retrofitClient.create(SudokuSolverService::class.java)
-                val echoResult = service.echo("elo")
-                val execute = echoResult.execute()
-                this.textView?.text =execute.body().get("result").asString
-                Log.i(TAG,"API Called")
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
+            val client = ServiceClient()
+            this.textView?.text = client.sendImg(this.imageBitmap)
         }
         thread.start()
 
