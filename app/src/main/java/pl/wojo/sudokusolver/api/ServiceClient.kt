@@ -12,6 +12,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.ByteArrayOutputStream
 import java.util.*
+import java.util.concurrent.TimeUnit
 
 
 class ServiceClient {
@@ -24,8 +25,14 @@ class ServiceClient {
     private val retrofitClient: Retrofit
         get() {
             val httpClient = OkHttpClient()
+                .newBuilder()
+                .connectTimeout(300, TimeUnit.SECONDS)
+                .readTimeout(300, TimeUnit.SECONDS)
+                .writeTimeout(300, TimeUnit.SECONDS)
+                .build()
             return Retrofit.Builder()
-                .baseUrl("http://153.19.62.198:8080/")
+                //.baseUrl("http://153.19.62.198:8080/")
+                .baseUrl("http://192.168.1.20:8080/")
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .client(httpClient)
                 .build()
@@ -49,6 +56,6 @@ class ServiceClient {
             result = "sendImg ex: ${e.message}"
             Log.e(TAG, result)
         }
-        return result
+        return result.replace(";", "\n")
     }
 }

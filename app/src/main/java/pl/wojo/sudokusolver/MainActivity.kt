@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
                 val cr = contentResolver
                 val instream: InputStream? = cr.openInputStream(contentURI)
                 val options = BitmapFactory.Options()
-                options.inSampleSize = 8
+                options.inSampleSize = 1
                 this.imageBitmap = BitmapFactory.decodeStream(instream, null, options)
                 this.imageView?.setImageBitmap(this.imageBitmap)
                 this.textView?.text = "Fotka ok"
